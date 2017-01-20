@@ -1,0 +1,90 @@
+---
+title: "R_program_03"
+author: "葉芃彣"
+date: "2017年1月20日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Data
+
+```{r}
+str(Orange)
+```
+---
+
+## 散佈圖
+
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(Orange,aes(x=age,y=circumference))+geom_point()+
+ggtitle("Orange tree age vs. circumference")+
+geom_smooth(method = "lm")
+```
+
+##線圖
+
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(Orange,aes(x=age,y=circumference))+geom_point()+geom_line()+
+ggtitle("Orange tree age vs. circumference")
+```
+
+##直方圖
+
+```{r, echo=FALSE, message=FALSE}
+library(ggplot2)
+ggplot(Orange,aes(x=circumference,color=Tree))+geom_histogram()+
+facet_wrap(~Tree)+
+ylab("percentage")+
+ggtitle("Orange tree age vs. circumference")
+```
+
+##盒鬚圖
+
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(Orange,aes(x=Tree,y=circumference,color=Tree))+geom_boxplot()+
+ggtitle("Orange tree age vs. circumference")
+```
+
+##長條圖
+
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(Orange,aes(x=Tree,y=circumference))+geom_bar(stat = "identity",aes(fill = age))+
+coord_flip()+
+ylab("percentage")+
+ggtitle("Orange tree age vs. circumference")
+```
+
+###參考連結
+- [簡單的繪圖（ggplot2）](https://yaojenkuo.github.io/r_programming/ch5#(1))
+- [用 RMarkdown 撰寫報告](https://yaojenkuo.github.io/r_programming/ch10#(1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
